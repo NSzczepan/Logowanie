@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Net suite">
+    <test name="Login to Net">
+        <classes>
+            <class name="LogowanieTest"/>
+        </classes>
+    </test>
+    <test name="Edit profile">
+    <classes>
+        <class name="EditTest"/>
+    </classes>
+</test>
+    <test name="Logout">
+        <classes>
+            <class name="LogOutTest"/>
+        </classes>
+    </test>
+</suite>
