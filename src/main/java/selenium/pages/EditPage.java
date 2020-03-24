@@ -1,83 +1,73 @@
-package Selenium.pages;
+package selenium.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import selenium.base.TestCommons;
 
-public class EditPage {
-    private WebDriver driver;
+public class EditPage extends TestCommons {
+    @FindBy( id = "inputUsername")
+    public WebElement usernameInput;
 
-    private By login = By.id("inputUsername");
-    private By password = By.id("inputPassword");
-    private By submitButton = By.xpath("/html/body/app/div/div/div/div/div[2]/form/button");
-    private By profileButton = By.xpath("/html/body/app/div[2]/div[2]/ul/li[2]/a");
-    private By editButton = By.xpath("/html/body/app/div[3]/div[2]/div[1]/div[2]/div[3]/a");
-     private By editUsername = By.id("username");
-    private By editBio = By.id("profileBio");
-    private By editFavourite = By.id("favouritePair");
-    private By changesButton =By.cssSelector("body > app > div.main > div.content.px-4 > div.container > form > div.justify-content-around.row > div:nth-child(2) > button");
+    @FindBy( id = "inputPassword")
+    public WebElement passwordInput;
 
+    @FindBy(xpath = "/html/body/app/div/div/div/div/div[2]/form/button")
+    public WebElement submitButton;
+
+    @FindBy( xpath = "/html/body/app/div[2]/div[2]/ul/li[2]/a")
+    public WebElement profileButton;
+
+    @FindBy( xpath = "/html/body/app/div[3]/div[2]/div[1]/div[2]/div[3]/a")
+    public WebElement editButton;
+
+   @FindBy(id = "username")
+   public WebElement editUsername;
+
+    @FindBy(id = "profileBio")
+   public WebElement editBio;
+
+    @FindBy(id = "favouritePair")
+    public WebElement editFavourite;
+
+    @FindBy(xpath= "/html/body/app/div[3]/div[2]/div/form/div[4]/div[2]/button")
+    public WebElement changesButton;
 
     public EditPage(WebDriver driver) {
-        this.driver = driver;
+        //PageFactory.initElements (driver, this);
+        initElements(driver);
     }
 
-    public void setLogin(String strLogin) {
-
-        driver.findElement(login).clear();
-        driver.findElement(login).sendKeys(strLogin);
+    public void sendKeysToUsernameInput(String text) {
     }
 
-    public void setPassword(String strPassword) {
-        driver.findElement(password).clear();
-        driver.findElement(password).sendKeys(strPassword);
+    public void sendKeysToPasswordInput(String text) {
     }
 
-    public void clickSignIn() {
-        driver.findElement(submitButton).click();
-    }
+    public void clickSubmitButton() {clickElement(submitButton);}
 
-    public void clickProfile() {
-        driver.findElement(profileButton).click();
-    }
+    public void clickProfileButton () {clickElement(profileButton);}
 
-    public void clickEdit() {
-        driver.findElement(editButton).click();
-    }
-     public void setEditUsername(String strUsername){
+    public void clickEditButton () {clickElement(editButton);}
 
-     driver.findElement(editUsername).clear();
-    driver.findElement(editUsername).sendKeys(strUsername);
-    }
-    public void setEditBio(String strBio) {
+    public void sendKeysToUsername(String text) {}
 
-        driver.findElement(editBio).clear();
-         driver.findElement(editBio).sendKeys(strBio);
-    }
+   public void sendKeysToBio(String text) {}
 
+    public void sendKeysToFavourite(String text) {}
 
-    public void setEditFavourite(String strFavourite){
+   public void clickChangesButton () {clickElement(changesButton);}
 
-    driver.findElement(editFavourite).clear();
-    driver.findElement(editFavourite).sendKeys(strFavourite);
-     }
-
-    public void clickChanges() {
-    driver.findElement(changesButton).click();
-    }
-
-    public void signIn(String strLogin, String strPassword) {
-        this.setLogin(strLogin);
-        this.setPassword(strPassword);
-        this.clickSignIn();
-
-    }
-
-    public void editProfile(String strUsername, String strBio, String strFavourite) {
-
-        this.setEditUsername(strUsername);
-        this.setEditBio(strBio);
-        this.setEditFavourite(strFavourite);
-        this.clickChanges();
+    public void edit (String text) {
+        sendKeysToUsernameInput(text);
+        sendKeysToPasswordInput(text);
+        clickSubmitButton();
+        clickProfileButton();
+        clickEditButton();
+        sendKeysToUsername(text);
+        sendKeysToBio(text);
+        sendKeysToFavourite(text);
+        clickChangesButton();
     }
 }
 

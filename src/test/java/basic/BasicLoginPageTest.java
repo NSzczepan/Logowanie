@@ -12,11 +12,11 @@ import java.util.concurrent.TimeUnit;
 
 public class BasicLoginPageTest {
     private WebDriver driver;
-    private final String url = "https://dev-patronage-btb.azurewebsites.net";
+    private final String url = "https://dev-patronage-btb.azurewebsites.net/login";
 
     @BeforeClass
     private void setUp() {
-        System.setProperty("webdriver.chrome.driver", "D:\\Patronage 2020\\Repo\\BitCoiny\\patronage-qa-bitcoiny\\bitcoiny\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Windows\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
 
@@ -28,8 +28,8 @@ public class BasicLoginPageTest {
     @Test
     public void loginPageTest() throws InterruptedException {
         driver.get(url);
-        driver.findElement(By.id("inputUsername")).sendKeys("testqa");
-        driver.findElement(By.id("inputPassword")).sendKeys("1234");
+        driver.findElement(By.id("inputUsername")).sendKeys("admin");
+        driver.findElement(By.id("inputPassword")).sendKeys("admin");
         driver.findElement(By.xpath("/html/body/app/div/div/div/div/div[2]/form/button")).click();
         Thread.sleep(8000);
         driver.quit();

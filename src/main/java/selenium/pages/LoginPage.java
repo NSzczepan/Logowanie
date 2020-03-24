@@ -3,20 +3,19 @@ package selenium.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import selenium.base.TestCommons;
 
 public class LoginPage extends TestCommons {
-    @FindBy( id = "inputUsername")
+    @FindBy( xpath = "//*[@id=\"inputUsername\"]")
     public WebElement usernameInput;
 
-    @FindBy( id = "inputPassword")
+    @FindBy( xpath = "//*[@id=\"inputPassword\"]")
     public WebElement passwordInput;
 
     @FindBy(xpath = "/html/body/app/div/div/div/div/div[2]/form/button")
     public WebElement submitButton;
 
-    public LoginPage(WebDriver driver) {
+    public LoginPage (WebDriver driver) {
         //PageFactory.initElements (driver, this);
         initElements(driver);
     }

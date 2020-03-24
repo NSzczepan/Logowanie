@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="My first login page test">
+<suite name="Test">
     <test name="Login BTB Page Test">
         <classes>
             <class name="basic.BasicLoginPageTest"/>
+        </classes>
+    </test>
+    <test name="Edit Test">
+    <classes>
+        <class name="EditTest"/>
+    </classes>
+    </test>
+        <test name="Logout Test">
+        <classes>
+            <class name="LogOutTest"/>
         </classes>
     </test>
     <test name="Subscribe BTB Page Test">
